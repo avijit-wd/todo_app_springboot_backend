@@ -28,27 +28,23 @@ public class TodoController {
 		return "This is starting";
 	}
 	
-	@GetMapping("/todos")
+	@GetMapping("/api/todos")
 	public List<Todo> getTodos(){
 		return this.todoService.getTodos();
 	}
 	
-	@GetMapping("/todos/{todoId}")
-	public Todo getTodo(@PathVariable  String todoId) {
-		return this.todoService.getTodo(Long.parseLong(todoId));
-	}
-	@PostMapping("/todos")
+	@PostMapping("/api/todos")
 	public Todo addTodo(@RequestBody Todo todo) {
 		return this.todoService.addTodo(todo);
 	}
-	@PutMapping("/todos")
+	@PutMapping("/api/todos")
 	public Todo updateTodo(@RequestBody Todo todo) {
 		return this.todoService.updateTodo(todo);
 	}
-	@DeleteMapping("/todos/{todoId}")
+	@DeleteMapping("/api/todos/{todoId}")
 	public ResponseEntity<HttpStatus> deleteTodo(@PathVariable String todoId) {
 		try {
-			this.todoService.deleteTodo(Long.parseLong(todoId));
+			this.todoService.deleteTodo(todoId);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}catch(Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

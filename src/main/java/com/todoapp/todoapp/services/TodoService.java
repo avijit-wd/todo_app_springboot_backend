@@ -7,12 +7,10 @@ import com.todoapp.todoapp.entities.Todo;
 public interface TodoService {
 	
 public List<Todo> getTodos();
-	
-	public Todo getTodo(long todoId);
-	
+		
 	public Todo addTodo(Todo todo);
 
 	public Todo updateTodo(Todo todo);
 	
-	public void deleteTodo(long todoId);
+	public void deleteTodo(String todoId);
 }

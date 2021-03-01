@@ -6,11 +6,11 @@ import javax.persistence.Id;
 @Entity
 public class Todo {
 	@Id
-	private long id;
+	private String id;
 	private String title;
 	private Boolean done;
 	
-	public Todo(long id, String title, Boolean done) {
+	public Todo(String id, String title, Boolean done) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -25,10 +25,10 @@ public class Todo {
 	public String toString() {
 		return "Todo [id=" + id + ", title=" + title + ", done=" + done + "]";
 	}
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
